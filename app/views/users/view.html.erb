@@ -14,3 +14,64 @@
   <strong>Uid:</strong>
   <%= @user.uid %>
 </p>
+
+
+<p>
+
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css" rel="stylesheet">
+
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-6 col-md-6">
+            <div class="well well-sm">
+                <div class="row">
+                    <div class="col-sm-6 col-md-4">
+                        <img src="http://placehold.it/380x500" alt="" class="img-rounded img-responsive" />
+                    </div>
+                    <div class="col-sm-6 col-md-8">
+                        <h4>
+                            Mera Naam</h4>
+                        <smally><cite title="San Francisco, USA">San Francisco, USA <i class="fa fa-map-marker">
+                        </i></cite></smally>
+                        <p>
+                            <i class="fa fa-envelope"></i>  email@example.com
+                            <br />
+                            <i class="fa fa-globe"></i><a href="http://www.jquery2dotnet.com">   www.jquery2dotnet.com</a>
+                            <br />
+                            <i class="fa fa-phone"></i> 9717524704
+                            <br />
+                            <i class="fa fa-share-alt"></i> My UID
+                            <br />
+                            <% # if job %>
+                                <i class="fa fa-line-chart"></i> I work at IIITD
+                            <% # else %>
+                            	<i class="fa fa-edit"></i> I study at IIITD
+                            <% #end %>
+                           	</p>
+                            
+                        <!-- Split button -->
+                        <div class="btn-group">
+                            <button type="button" class="btn btn-primary">
+                                <i class = 'fa fa-user'></i> View Profile</button>
+                            <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                                <span class="caret"></span><span class="sr-only">Social</span>
+                            </button>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a href="#">Twitter</a></li>
+                                <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
+                                <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
+                                <li class="divider"></li>
+                                <li><a href="#">Github</a></li>
+                            </ul>
+                        </div>
+                        <button type="button" class="btn btn-danger" style = 'margin-left:10px'>
+                                <li class = 'fa fa-trash'></li> UnFollow</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+ 
+</p>
