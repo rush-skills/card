@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   
   def profile
     @user = current_user
-    redirect_to "/"+current_user.uid
+    redirect_to "/"+current_user.uid
   end
 
   def view
