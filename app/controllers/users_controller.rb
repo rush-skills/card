@@ -8,6 +8,11 @@ class UsersController < ApplicationController
 
   def view
     @user ||= User.find_by_uid(params[:id])
+    if @user.nil?
+      redirect_to "/"
+      flash[:error] = "Invalid URL"
+      return
+    end
   end
 
   private
