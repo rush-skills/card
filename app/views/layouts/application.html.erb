@@ -25,10 +25,10 @@
           </button>
           <%= link_to('/', :class => 'navbar-brand') do%> Card <%end%>
         </div>
-        <div class="collapse navbar-collapse">
+        <div class="collapse navbar-collapse pull-right">
           <ul class="nav navbar-nav">
           <% if user_signed_in? %>
-          <li class=" "><%= link_to('Home', edit_user_registration_path) %></li>
+          <li class=" "><%= link_to('Edit Profile', edit_user_registration_path) %></li>
           <li><%= link_to( destroy_user_session_path, :method => :delete) do %>Log Out<%end%>
           <%else%>
           <li><%= link_to( new_user_session_path) do %>Login<%end%>
