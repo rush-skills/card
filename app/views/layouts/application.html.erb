@@ -56,7 +56,19 @@
   <%= link_to('Register', new_user_registration_path)  %>
   </li>
 <% end %>
-<%= yield %>
+<!-- navbar till here, body now begins -->
+<div class="container">
+	 <% if flash[:notice] %>
+    <div class="alert alert-success"><%= flash[:notice] %></div>
+    <% elsif flash[:error] %>
+    <div class="alert alert-danger"><%= flash[:notice] %></div>
+    <% elsif flash[:warning] %>
+    <div class="alert alert-warning"><%= flash[:notice] %></div>
+    <% elsif flash[:info] %>
+    <div class="alert alert-info"><%= flash[:notice] %></div>
+  <% end %>
 
+<%= yield %>
+</div>
 </body>
 </html>
