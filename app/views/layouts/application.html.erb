@@ -38,10 +38,11 @@
         </div><!--/.nav-collapse -->
       </div>
     </div>
+<br><br><br>
+<div class="container">
 
 <!-- navbar till here, body now begins -->
-<div class="container">
-	 <% if flash[:notice] %>
+   <% if flash[:notice] %>
     <div class="alert alert-success"><%= flash[:notice] %></div>
     <% elsif flash[:error] %>
     <div class="alert alert-danger"><%= flash[:notice] %></div>
@@ -50,7 +51,6 @@
     <% elsif flash[:info] %>
     <div class="alert alert-info"><%= flash[:notice] %></div>
   <% end %>
-<br><br><br>
 <%= yield %>
 </div>
 </body>
