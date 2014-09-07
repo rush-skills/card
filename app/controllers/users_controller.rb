@@ -26,6 +26,12 @@ class UsersController < ApplicationController
     redirect_to "/network" and return
   end
 
+  def add_to_network2
+    user = User.find_by_id(params[:id])
+    net = Network.create(from: current_user.id, to: user.id)
+    redirect_to "/#{user.uid}" and return
+  end
+
   def remove_from_network
     net = Network.where(from: current_user.id, to: params[:id]).first.destroy
     redirect_to "/network"

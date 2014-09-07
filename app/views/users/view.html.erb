@@ -53,9 +53,17 @@
                 </div>
                 <div class="modal-footer">
                     <center>
-                    <% #if not followed %><button type="button" class="btn btn-success" ><i class = 'fa fa-plus'></i> Follow</button>
-                    <% #else %><button type="button" class="btn btn-danger" ><i class = 'fa fa-trash'></i> UnFollow</button>
-                    <% #end %>
+                        <% unless current_user.id == @user.id %>
+                        <%followed = Network.where(from: current_user.id, to: @user.id).first %>
+                    <% if not followed %>
+                    <%= link_to '/network/add/'+@user.id.to_s do %>
+                        <button type="button" class="btn btn-success" style = 'margin-left:10px'>
+                                <li class = 'fa fa-plus'></li> Follow</button> <% end %>
+                    <% else %><%= link_to '/network/remove/'+@user.id.to_s do %>
+                        <button type="button" class="btn btn-danger" style = 'margin-left:10px'>
+                                <li class = 'fa fa-trash'></li> Unfollow</button> <% end %>
+                    <% end %>
+                    <% end %>
                     </center>
                 </div>
             </div>

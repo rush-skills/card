@@ -10,6 +10,7 @@ Rails.application.routes.draw do
   # root 'welcome#index'
   get '/network' => 'users#network'
   get '/network/add/' => "users#add_to_network"
+  get '/network/add/:id' => "users#add_to_network2"
   get '/network/remove/:id' => "users#remove_from_network"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'

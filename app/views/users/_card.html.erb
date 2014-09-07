@@ -32,8 +32,8 @@
                             
                         <!-- Split button -->
                         <div class="btn-group">
-                            <button type="button" class="btn btn-primary">
-                                <i class = 'fa fa-user'></i> View Profile</button>
+                            
+                               <%= link_to "/"+user.uid.to_s, type: "button", :class => "btn btn-primary"  do %> <i class = 'fa fa-user'></i> View Profile<%end%>
                             <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
                                 <span class="caret"></span><span class="sr-only">Social</span>
                             </button>
