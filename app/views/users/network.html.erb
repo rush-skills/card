@@ -1,0 +1,9 @@
+<% @user = User.new %>
+<%= form_for @user, url: '/network/add/', :method => :get do |f| %>
+  <%= f.text_field :uid %>
+  <%= f.submit %>
+<% end %>
+<% @net.each do |n| %>
+<%= @user = User.find_by_id(n.to) %>
+<%= render partial: "users/card", :locals => {user: @user }%>
+<% end %>

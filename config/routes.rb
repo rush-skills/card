@@ -8,7 +8,9 @@ Rails.application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # root 'welcome#index'
-
+  get '/network' => 'users#network'
+  get '/network/add/' => "users#add_to_network"
+  get '/network/remove/:id' => "users#remove_from_network"
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
