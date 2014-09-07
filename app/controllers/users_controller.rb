@@ -1,5 +1,18 @@
 class UsersController < ApplicationController
 
+
+  def update
+    @user = User.find(params[:id])
+    respond_to do |format|
+      if @user.update(user_params)
+        format.html { redirect_to '/', notice: 'User was successfully updated.' }
+        format.json { render :show, status: :ok, location: @user }
+      else
+        format.html { redirect_to '/edit', error: 'User was not updated.' }
+        format.json { render json: @network.errors, status: :unprocessable_entity }
+      end
+    end
+  end
   
   def profile
     @user = current_user
@@ -15,15 +28,21 @@ class UsersController < ApplicationController
     end
   end
 
+  def edit_profile
+    @user = current_user
+  end
   def network
     @net = Network.where(from: current_user.id)
 
   end
 
   def add_to_network
-    user = User.find_by_uid(user_params[:uid])
+    user = User.find_by_uid(user_params[:uid].downcase.strip)
     if user and user.id != current_user.id
+      puts "validation passed"
     net = Network.create(from: current_user.id, to: user.id)
+  else
+    puts "asdsadad"
     end
     redirect_to "/network" and return
   end
@@ -46,6 +65,6 @@ class UsersController < ApplicationController
 
   # Never trust parameters from the scary internet, only allow the white list through.
   def user_params
-    params.require(:user).permit(:name, :email, :uid)
+    params.require(:user).permit(:name,:uid, :email, :password, :password_confirmation, :remember_me, :contact_number, :address, :job_title, :job_company, :education_degree, :education_college,:website,:dob,:bio,:location,:pic,:github,:gplus,:linkedin,:facebook, :twitter)
   end
 end
