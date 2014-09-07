@@ -7,24 +7,26 @@
                 </div>
             <div class="modal-body">
                 <center>
-                <img src="<% if @user.pic %><%=@user.pic%><%else%>http://www.refpredictor.com/images/m-av.png<%end%>" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                <img src="<% if @user.pic and not @user.pic.eql? "" %><%=@user.pic%><%else%>http://www.refpredictor.com/images/m-av.png<%end%>" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                 <h3 class="media-heading"> <%=@user.name %> 
-                	<% if @user.location %><br><i class = "fa fa-map-marker"></i><small> <%=@user.location %></small></h3><%end%></center>
+                	<% if @user.location  and not @user.location.eql? "" %><br><i class = "fa fa-map-marker"></i><small> <%=@user.location %></small></h3><%end%></center>
                 <hr><div>
                 		<i class="fa fa-envelope"></i>  <%=@user.email%>
                         <br /> 
-                        <% if @user.website %><i class="fa fa-globe"></i><a href="<%=@user.website%>"><%=@user.website%></a><%end%>
-                        <br />
-                        <% if @user.contact_number %><i class="fa fa-phone"></i> <%=@user.contact_number %>
+                        <% if @user.website and not @user.website.eql? "" %><i class="fa fa-globe"></i><a href="<%=@user.website%>"><%=@user.website%></a>
                         <br /><%end%>
-                        <% if @user.dob %><i class="fa fa-gift"></i> <%=@user.dob%>
+                        <% if @user.contact_number and not @user.contact_number.eql? ""%><i class="fa fa-phone"></i> <%=@user.contact_number %>
+                        <br /><%end%>
+                        <% if @user.dob and not @user.dob.eql? ""%><i class="fa fa-gift"></i> <%=@user.dob%>
                         <br /> <% end %>
                         <i class="fa fa-share-alt"></i> <%=@user.uid %>
                         <br />
-                        <% if @user.job_title %>
+                        <% if @user.job_title and not @user.job_title.eql? "" %>
                             <i class="fa fa-line-chart"></i> Works as a <%= @user.job_title %> at <%= @user.job_company %>
                         <%  else %>
+                        <% if @user.education_degree and not @user.education_degree %>
                             <i class="fa fa-edit"></i> Studies <%= @user.education_degree %> at <%=@user.education_college%>
+                        <% end %>
                         <% end %>
                        </div>
                        <%=@user.github%>
@@ -33,7 +35,7 @@
                        <%=@user.facebook%>
                        <%=@user.twitter%>
                 <hr>
-                <% if @user.bio %>
+                <% if @user.bio and not @user.bio.eql? ""%>
                 <center>
                 <p class="text-left"><strong>Bio: </strong><br>
                     <%=@user.bio%></p>
@@ -41,7 +43,7 @@
                 </center>
                 <hr>
                 <%end%>
-                <% if @user.address %>
+                <% if @user.address and not @user.address.eql? ""%>
                 <center>
                 <p class="text-left"><strong>Address: </strong><br>
                    <%=@user.address%></p>
