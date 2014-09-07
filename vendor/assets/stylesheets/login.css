@@ -54,7 +54,7 @@ body{
 
 form{
   background:#f0f0f0;
-  padding:6% 4%;
+  /*padding:6% 4%;*/
 }
 
 input[type="email"],[type="text"],[type="number"]input[type="password"]{
