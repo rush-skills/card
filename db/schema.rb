@@ -11,7 +11,63 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140907013635) do
+ActiveRecord::Schema.define(version: 20140907044323) do
+
+  create_table "addresses", force: true do |t|
+    t.string   "line1"
+    t.string   "line2"
+    t.string   "state"
+    t.string   "city"
+    t.string   "country"
+    t.string   "pin"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "addresses", ["user_id"], name: "index_addresses_on_user_id"
+
+  create_table "contact_emails", force: true do |t|
+    t.string   "data"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_emails", ["user_id"], name: "index_contact_emails_on_user_id"
+
+  create_table "contact_numbers", force: true do |t|
+    t.string   "data"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "contact_numbers", ["user_id"], name: "index_contact_numbers_on_user_id"
+
+  create_table "educations", force: true do |t|
+    t.string   "degree"
+    t.string   "college"
+    t.date     "from"
+    t.date     "to"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "educations", ["user_id"], name: "index_educations_on_user_id"
+
+  create_table "jobs", force: true do |t|
+    t.string   "title"
+    t.string   "company"
+    t.date     "from"
+    t.date     "to"
+    t.integer  "user_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "jobs", ["user_id"], name: "index_jobs_on_user_id"
 
   create_table "networks", force: true do |t|
     t.integer  "from"
@@ -51,6 +107,8 @@ ActiveRecord::Schema.define(version: 20140907013635) do
     t.string   "linkedin"
     t.string   "facebook"
     t.string   "twitter"
+    t.string   "provider"
+    t.string   "unid"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true
