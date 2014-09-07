@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>From:</strong>
+  <%= @network.from %>
+</p>
+
+<p>
+  <strong>To:</strong>
+  <%= @network.to %>
+</p>
+
+<%= link_to 'Edit', edit_network_path(@network) %> |
+<%= link_to 'Back', networks_path %>
