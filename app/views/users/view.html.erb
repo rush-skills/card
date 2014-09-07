@@ -25,14 +25,24 @@
                             <i class="fa fa-line-chart"></i> Works as a <%= @user.job_title %> at <%= @user.job_company %><br>
                         <%  end %>
                         <% if @user.education_degree and not @user.education_degree.eql? "" %>
-                            <i class="fa fa-edit"></i> Studies <%= @user.education_degree %> at <%=@user.education_college%><br>
+                            <i class="fa fa-edit"></i> Studies <%= @user.education_degree %> at <%=@user.education_college%>
                         <% end %>
 
+                       <% if @user.github and not @user.github.eql? "" %>
                             <i class="fa fa-github"></i><%= @user.github %><br>
+                        <% end %>
+                       <% if @user.gplus and not @user.gplus.eql? "" %>
                             <i class="fa fa-google-plus"></i><%= @user.gplus %><br>
+                        <% end %>
+                       <% if @user.linkedin and not @user.linkedin.eql? "" %>
                             <i class="fa fa-linkedin"></i> <%= @user.linkedin %> <br>
+                        <% end %>
+                       <% if @user.facebook and not @user.facebook.eql? "" %>
                             <i class="fa fa-facebook"></i> <%= @user.facebook %><br>
+                        <% end %>
+                       <% if @user.twitter and not @user.twitter.eql? "" %>
                             <i class="fa fa-twitter"></i> <%= @user.twitter %> <br>
+                        <% end %>
                        </div>
                 <hr>
                 <% if @user.bio and not @user.bio.eql? ""%>
@@ -65,7 +75,7 @@
                             <li class = 'fa fa-trash'></li> Unfollow</button> <% end %>
                 <% end %>
                 <% else %>
-                <%= link_to '/edit' do %>
+                <%= link_to '/users/edit' do %>
                 <button type="button" class="btn btn-primary" ><i class = 'fa fa-pencil'></i> Edit</button>
                 <%end%>
                 <% end %>
