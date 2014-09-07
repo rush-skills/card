@@ -10,7 +10,7 @@
                 <img src="<% if @user.pic and not @user.pic.eql? "" %><%=@user.pic%><%else%>http://www.refpredictor.com/images/m-av.png<%end%>" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
                 <h3 class="media-heading"> <%=@user.name %> 
                 	<% if @user.location  and not @user.location.eql? "" %><br><i class = "fa fa-map-marker"></i><small> <%=@user.location %></small></h3><%end%></center>
-                <hr><div>
+                <hr><div style="left:80%">
                 		<i class="fa fa-envelope"></i>  <%=@user.email%>
                         <br /> 
                         <% if @user.website and not @user.website.eql? "" %><i class="fa fa-globe"></i><a href="<%=@user.website%>"><%=@user.website%></a>
