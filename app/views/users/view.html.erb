@@ -1,75 +1,78 @@
-<p id="notice"></p>
-
-<p>
-
  <div>
-        <div class="modal-dialog">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
-                    <h4 class="modal-title" id="myModalLabel">About Joe</h4>
-                    </div>
-                <div class="modal-body">
-                    <center>
-                    <img src="https://encrypted-tbn2.gstatic.com/images?q=tbn:ANd9GcRbezqZpEuwGSvitKy3wrwnth5kysKdRqBW54cAszm_wiutku3R" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
-                    <h3 class="media-heading"> Bande Ka Naam 
-                    	<br><i class = "fa fa-map-marker"></i><small> INDIA</small></h3></center>
-                    <hr><div>
-                    		<i class="fa fa-envelope"></i>  email@example.com
-                            <br />
-                            <i class="fa fa-globe"></i><a href="http://www.jquery2dotnet.com">   www.jquery2dotnet.com</a>
-                            <br />
-                            <i class="fa fa-phone"></i> 9717524704
-                            <br />
-                            <i class="fa fa-gift"></i> 28-Aug-1996
-                            <br />
-                            <i class="fa fa-share-alt"></i> My UID
-                            <br />
-                            <% # if job %>
-                                <i class="fa fa-line-chart"></i> I work at IIITD  <br />
-                            <% # else %>
-                            	<i class="fa fa-edit"></i> I study at IIITD
-                            <% #end %>
-                           </div>
-                    <hr>
-                    <center>
-                    <p class="text-left"><strong>Bio: </strong><br>
-                        Description will lie here.</p>
-                    <br>
-                    </center>
-                    <center>
-                    <p class="text-left"><strong>Address: </strong><br>
-                        Address will lie here.</p>
-                    <br>
-                    </center>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true"></button>
+                <h2 class="modal-title" id="myModalLabel">Profile</h2>
                 </div>
-                <div class="modal-footer">
-                    <center>
-                        <% unless current_user.id == @user.id %>
-                        <%followed = Network.where(from: current_user.id, to: @user.id).first %>
-                    <% if not followed %>
-                    <%= link_to '/network/add/'+@user.id.to_s do %>
-                        <button type="button" class="btn btn-success" style = 'margin-left:10px'>
-                                <li class = 'fa fa-plus'></li> Follow</button> <% end %>
-                    <% else %><%= link_to '/network/remove/'+@user.id.to_s do %>
-                        <button type="button" class="btn btn-danger" style = 'margin-left:10px'>
-                                <li class = 'fa fa-trash'></li> Unfollow</button> <% end %>
-                    <% end %>
-                    <% else %>
-                    <%= link_to '/users/edit' do %>
-                    <button type="button" class="btn btn-primary" ><i class = 'fa fa-pencil'></i> Edit</button>
-                    <%end%>
-                    <% end %>
-                    </center>
-                </div>
+            <div class="modal-body">
+                <center>
+                <img src="<% if @user.pic and not @user.pic.eql? "" %><%=@user.pic%><%else%>http://www.refpredictor.com/images/m-av.png<%end%>" name="aboutme" width="140" height="140" border="0" class="img-circle"></a>
+                <h3 class="media-heading"> <%=@user.name %> 
+                	<% if @user.location  and not @user.location.eql? "" %><br><i class = "fa fa-map-marker"></i><small> <%=@user.location %></small></h3><%end%></center>
+                <hr><div>
+                		<i class="fa fa-envelope"></i>  <%=@user.email%>
+                        <br /> 
+                        <% if @user.website and not @user.website.eql? "" %><i class="fa fa-globe"></i><a href="<%=@user.website%>"><%=@user.website%></a>
+                        <br /><%end%>
+                        <% if @user.contact_number and not @user.contact_number.eql? ""%><i class="fa fa-phone"></i> <%=@user.contact_number %>
+                        <br /><%end%>
+                        <% if @user.dob and not @user.dob.eql? ""%><i class="fa fa-gift"></i> <%=@user.dob%>
+                        <br /> <% end %>
+                        <i class="fa fa-share-alt"></i> <%=@user.uid %>
+                        <br />
+                        <% if @user.job_title and not @user.job_title.eql? "" %>
+                            <i class="fa fa-line-chart"></i> Works as a <%= @user.job_title %> at <%= @user.job_company %>
+                        <%  else %>
+                        <% if @user.education_degree and not @user.education_degree %>
+                            <i class="fa fa-edit"></i> Studies <%= @user.education_degree %> at <%=@user.education_college%>
+                        <% end %>
+                        <% end %>
+                       </div>
+                       <%=@user.github%>
+                       <%=@user.gplus%>
+                       <%=@user.linkedin%>
+                       <%=@user.facebook%>
+                       <%=@user.twitter%>
+                <hr>
+                <% if @user.bio and not @user.bio.eql? ""%>
+                <center>
+                <p class="text-left"><strong>Bio: </strong><br>
+                    <%=@user.bio%></p>
+                <br>
+                </center>
+                <hr>
+                <%end%>
+                <% if @user.address and not @user.address.eql? ""%>
+                <center>
+                <p class="text-left"><strong>Address: </strong><br>
+                   <%=@user.address%></p>
+                <br>
+                </center>
+                <hr>
+                <% end %>
+            </div>
+            <div class="modal-footer">
+                <center>
+                    <% unless current_user.id == @user.id %>
+                    <%followed = Network.where(from: current_user.id, to: @user.id).first %>
+                <% if not followed %>
+                <%= link_to '/network/add/'+@user.id.to_s do %>
+                    <button type="button" class="btn btn-success" style = 'margin-left:10px'>
+                            <li class = 'fa fa-plus'></li> Follow</button> <% end %>
+                <% else %><%= link_to '/network/remove/'+@user.id.to_s do %>
+                    <button type="button" class="btn btn-danger" style = 'margin-left:10px'>
+                            <li class = 'fa fa-trash'></li> Unfollow</button> <% end %>
+                <% end %>
+                <% else %>
+                <%= link_to '/users/edit' do %>
+                <button type="button" class="btn btn-primary" ><i class = 'fa fa-pencil'></i> Edit</button>
+                <%end%>
+                <% end %>
+                </center>
             </div>
         </div>
     </div>
-
-</p>
-
-<p>
-
+</div>
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <link href="//netdna.bootstrapcdn.com/font-awesome/4.0.0/css/font-awesome.min.css" rel="stylesheet">
-</p>
