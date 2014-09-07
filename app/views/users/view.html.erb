@@ -29,19 +29,19 @@
                         <% end %>
 
                        <% if @user.github and not @user.github.eql? "" %>
-                            <i class="fa fa-github"></i><%= @user.github %><br>
+                        <a href= "http://github.com/<%= @user.github %>/"> <i class="fa fa-github"></i> <%= @user.github %><br></a>
                         <% end %>
                        <% if @user.gplus and not @user.gplus.eql? "" %>
-                            <i class="fa fa-google-plus"></i><%= @user.gplus %><br>
+                        <a href ="http://plus.google.com/u/0/<%= @user.gplus %>/"> <i class="fa fa-google-plus"></i> <%= @user.gplus %><br></a>
                         <% end %>
                        <% if @user.linkedin and not @user.linkedin.eql? "" %>
-                            <i class="fa fa-linkedin"></i> <%= @user.linkedin %> <br>
+                        <a href ="http://www.linkedin.com/in/<%= @user.linkedin %>/"> <i class="fa fa-linkedin"></i> <%= @user.linkedin %> <br></a>
                         <% end %>
                        <% if @user.facebook and not @user.facebook.eql? "" %>
-                            <i class="fa fa-facebook"></i> <%= @user.facebook %><br>
+                        <a href= "http://facebook.com/<%= @user.facebook %>/"> <i class="fa fa-facebook"></i> <%= @user.facebook %><br></a>
                         <% end %>
                        <% if @user.twitter and not @user.twitter.eql? "" %>
-                            <i class="fa fa-twitter"></i> <%= @user.twitter %> <br>
+                        <a href= "http://twitter.com/<%= @user.twitter %>/"> <i class="fa fa-twitter"></i> <%= @user.twitter %> <br></a>
                         <% end %>
                        </div>
                 <hr>
