@@ -7,24 +7,27 @@
                     <div class="col-sm-6 col-md-8">
                         <h4>
                             <%= user.name %></h4>
-                        <smally><cite title="San Francisco, USA"><%= user.address %> <i class="fa fa-map-marker">
-                        </i></cite></smally>
-                        <p>
-                            <i class="fa fa-envelope"></i> <%=user.email%>
-                            <br />
-                            <i class="fa fa-globe"></i><a href="http://www.jquery2dotnet.com">   www.jquery2dotnet.com</a>
-                            <br />
-                            <i class="fa fa-phone"></i> <%= user.contact_number %>
-                            <br />
-                            <i class="fa fa-gift"></i> 28-Aug-1996
-                            <br />
-                            <i class="fa fa-share-alt"></i> <%= user.uid %>
-                            <br />
-                            <% if user.job_title %>
-                                <i class="fa fa-line-chart"></i> Works as a <%= user.job_title %> at <%= user.job_company %>
-                            <%  else %>
-                            	<i class="fa fa-edit"></i> Studies <%= user.education_degree %> at <%=user.education_college%>
-                            <% end %>
+                            <% @user = user %>
+                        <% if @user.location  and not @user.location.eql? "" %><br><i class = "fa fa-map-marker"></i><small> <%=@user.location %></small></h3><%end%></center>
+                <div>
+                        <i class="fa fa-envelope"></i>  <%=@user.email%>
+                        <br /> 
+                        <% if @user.website and not @user.website.eql? "" %><i class="fa fa-globe"></i><a href="<%=@user.website%>"><%=@user.website%></a>
+                        <br /><%end%>
+                        <% if @user.contact_number and not @user.contact_number.eql? ""%><i class="fa fa-phone"></i> <%=@user.contact_number %>
+                        <br /><%end%>
+                        <% if @user.dob and not @user.dob.eql? ""%><i class="fa fa-gift"></i> <%=@user.dob%>
+                        <br /> <% end %>
+                        <i class="fa fa-share-alt"></i> <%=@user.uid %>
+                        <br />
+                        <% if @user.job_title and not @user.job_title.eql? "" %>
+                            <i class="fa fa-line-chart"></i> Works as a <%= @user.job_title %> at <%= @user.job_company %>
+                        <%  else %>
+                        <% if @user.education_degree and not @user.education_degree %>
+                            <i class="fa fa-edit"></i> Studies <%= @user.education_degree.eql? "" %> at <%=@user.education_college%>
+                        <% end %>
+                        <% end %>
+                        </div>
                            	</p>
                             
                         <!-- Split button -->
@@ -35,11 +38,11 @@
                                 <span class="caret"></span><span class="sr-only">Social</span>
                             </button>
                             <ul class="dropdown-menu" role="menu">
-                                <li><a href="#">Twitter</a></li>
-                                <li><a href="https://plus.google.com/+Jquery2dotnet/posts">Google +</a></li>
-                                <li><a href="https://www.facebook.com/jquery2dotnet">Facebook</a></li>
-                                <li class="divider"></li>
-                                <li><a href="#">Github</a></li>
+                                <% if @user.twitter and not @user.twitter.eql? "" %><li><a href="<%=@user.twitter%>">Twitter</a></li><%end%>
+                                <% if @user.gplus and not @user.gplus.eql? "" %><li><a href="<%=@user.gplus%>">Google +</a></li><%end%>
+                                <% if @user.linkedin and not @user.linkedin.eql? "" %><li><a href="<%=@user.linkedin%>">Linkedin +</a></li><%end%>
+                                <% if @user.facebook and not @user.facebook.eql? "" %><li><a href="<%=@user.facebook%>">Facebook</a></li><%end%>
+                                <% if @user.github and not @user.github.eql? "" %><li><a href="<%=@user.github%>">Github</a></li><%end%>
                             </ul>
                         </div>
                         <%= link_to '/network/remove/'+user.id.to_s do %>
