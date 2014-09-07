@@ -45,7 +45,7 @@
                                 <li><a href="#">Github</a></li>
                             </ul>
                         </div>
-                        <% link_to '/network/remove/#{user.id}' do %>
+                        <%= link_to '/network/remove/'+user.id.to_s do %>
                         <button type="button" class="btn btn-danger" style = 'margin-left:10px'>
                                 <li class = 'fa fa-trash'></li> UnFollow</button> <% end %>
                     </div>

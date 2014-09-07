@@ -4,6 +4,6 @@
   <%= f.submit %>
 <% end %>
 <% @net.each do |n| %>
-<%= @user = User.find_by_id(n.to) %>
+<% @user = User.find_by_id(n.to) %>
 <%= render partial: "users/card", :locals => {user: @user }%>
 <% end %>
