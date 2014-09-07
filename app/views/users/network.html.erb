@@ -1,8 +1,15 @@
 <% @user = User.new %>
+<%= stylesheet_link_tag 'login'%>
+
+<div id="slideshow">
+	<div id="login">
 <%= form_for @user, url: '/network/add/', :method => :get do |f| %>
-  <%= f.text_field :uid %>
-  <%= f.submit %>
+<div style="text-align:center">
+ <%= f.text_field :uid, :placeholder => "UID", :style => "width: 50%;background: #fff;margin-bottom: 4%;border: 1px solid #ccc;padding: 4%;font-family: 'Open Sans',sans-serif;font-size: 95%;color: #555;" %>
+</div>
+  <%= f.submit "Add User" %>
 <% end %>
+</div></div>
 <% @net.each do |n| %>
 <% @user = User.find_by_id(n.to) %>
 <%= render partial: "users/card", :locals => {user: @user }%>
