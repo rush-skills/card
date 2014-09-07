@@ -13,7 +13,7 @@
                 <hr><div style="left:80%">
                 		<i class="fa fa-envelope"></i>  <%=@user.email%>
                         <br /> 
-                        <% if @user.website and not @user.website.eql? "" %><i class="fa fa-globe"></i><a href="<%=@user.website%>"><%=@user.website%></a>
+                        <% if @user.website and not @user.website.eql? "" %><i class="fa fa-globe"></i><a href="<%=@user.website%>"> <%=@user.website%></a>
                         <br /><%end%>
                         <% if @user.contact_number and not @user.contact_number.eql? ""%><i class="fa fa-phone"></i> <%=@user.contact_number %>
                         <br /><%end%>
