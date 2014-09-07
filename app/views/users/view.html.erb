@@ -25,14 +25,15 @@
                             <i class="fa fa-line-chart"></i> Works as a <%= @user.job_title %> at <%= @user.job_company %><br>
                         <%  end %>
                         <% if @user.education_degree and not @user.education_degree.eql? "" %>
-                            <i class="fa fa-edit"></i> Studies <%= @user.education_degree %> at <%=@user.education_college%>
+                            <i class="fa fa-edit"></i> Studies <%= @user.education_degree %> at <%=@user.education_college%><br>
                         <% end %>
+
+                            <i class="fa fa-github"></i><%= @user.github %><br>
+                            <i class="fa fa-google-plus"></i><%= @user.gplus %><br>
+                            <i class="fa fa-linkedin"></i> <%= @user.linkedin %> <br>
+                            <i class="fa fa-facebook"></i> <%= @user.facebook %><br>
+                            <i class="fa fa-twitter"></i> <%= @user.twitter %> <br>
                        </div>
-                       <%=@user.github%>
-                       <%=@user.gplus%>
-                       <%=@user.linkedin%>
-                       <%=@user.facebook%>
-                       <%=@user.twitter%>
                 <hr>
                 <% if @user.bio and not @user.bio.eql? ""%>
                 <center>
